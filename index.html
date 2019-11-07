@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    form {
+      background-color: lightgray;
+    }
+     
+     legend{
+         background-color: white;
+         color: turquoise;
+         border: 1px solid #c4b5b5;
+         
+     }
+
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border-radius: 50%;
+    }
+
+    .container:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    .container input:checked ~ .checkmark {
+        background-color: #2196F3;
+    }
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    .container .checkmark:after {
+ 	    top: 9px;
+	    left: 9px;
+	    width: 8px;
+	    height: 8px;
+	    border-radius: 50%;
+	    background: white;
+    }
+
+     button{
+         background-color: turquoise;
+     }
+
+  </style>
+  <body>
+      <form>
+    <fieldset>
+      <legend>Feel free to send a message:</legend>
+      <form name="contact" method="POST" data-netlify="true">
+            <form action="mailto: example@gmail.com" method="post" enctype="text/plain">
+        <p>
+          <label>Your Email:<br> <input type="email" name="email"/></label>
+        </p>
+        <p>
+          <label>Message:<br> <textarea name="message"></textarea></label>
+        </p>
+        <fieldset>
+          <legend>Would you like a reply?</legend>
+          <label class="container">Yes
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span><br>
+              </label>
+              <label class="container">No
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+              </label>
+        </fieldset>
+        <p>
+          <button type="submit">Send Message</button>
+        </p>
+    </fieldset>
+    </form>
+  </body>
+</html>
